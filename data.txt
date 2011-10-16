@@ -1,6 +1,6 @@
 Book:Defter
 Table:Masa
 Pencil:Kalem
-Door:Kapı
-Blue:Mavi
+Door:KapI
+Blue:Mavİ
 Dog:Köpek

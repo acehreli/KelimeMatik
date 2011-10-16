@@ -1,5 +1,6 @@
 import std.stdio;
 import std.array;
+import std.string;
 
 import egzersiz;
 
@@ -15,8 +16,8 @@ void main()
 		
 		write("Cevap : ");
 		string cevap = readln();
-		
-		if (cevap == soru.cevapKelime)
+
+		if (toLower(cevap) == toLower(soru.cevapKelime))
 		{
 			writeln("Tebrikler! dogru cevap");
 		}
