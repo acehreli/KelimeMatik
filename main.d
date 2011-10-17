@@ -1,13 +1,30 @@
 import std.stdio;
+import std.array;
+
+import egzersiz;
 
 void main()
 {
-	File data = File("data.txt", "rb");
+	Egzersiz calisma = new Egzersiz("data.txt");
 	
-	while (!data.eof)
+	Soru[] soruListe = calisma.VerSoruListesi();
+	
+	foreach (soru; soruListe)
 	{
-		string satir = data.readln();
+		writeln("Soru : ", soru.soruKelime);
 		
-		writeln(satir);
+		write("Cevap : ");
+		string cevap = readln();
+		
+		if (cevap == soru.cevapKelime)
+		{
+			writeln("Tebrikler! dogru cevap");
+		}
+		else
+		{
+			writeln("Uzgunum! yanlis cevap");
+		}
 	}
 }
+
+

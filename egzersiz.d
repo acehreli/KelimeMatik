@@ -18,10 +18,10 @@ class Egzersiz
 		//assert(exists(dosyaAdresi) == false, "hata");
 		
 		_soruDosyasi = dosyaAdresi;
-		SoruListesiDoldur();
+		SoruListesiHazirla();
 	}
 	
-	private void SoruListesiDoldur()
+	private void SoruListesiHazirla()
 	{
 		File data = File(_soruDosyasi, "rb");
 	
