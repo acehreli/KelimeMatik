@@ -15,7 +15,7 @@ class Egzersiz
 	
 	public this(string dosyaAdresi)
 	{
-		//assert(exists(dosyaAdresi) == false, "hata");
+		assert(exists(dosyaAdresi), "Hata, dosya bulunamadi!");
 		
 		_soruDosyasi = dosyaAdresi;
 		SoruListesiHazirla();
