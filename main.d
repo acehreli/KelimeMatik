@@ -15,7 +15,7 @@ void main()
 		writeln("Soru : ", soru.soruKelime);
 		
 		write("Cevap : ");
-		string cevap = readln();
+		string cevap = chomp(readln());
 
 		if (toLower(cevap) == toLower(soru.cevapKelime))
 		{

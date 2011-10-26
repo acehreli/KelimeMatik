@@ -23,21 +23,13 @@ class Egzersiz
 	
 	private void SoruListesiHazirla()
 	{
-		File data = File(_soruDosyasi, "rb");
-	
-		int i = 0;
-		while (!data.eof)
+		File dosya = File(_soruDosyasi, "rb");
+
+		foreach (satir; dosya.byLine())
 		{
-			string satir = data.readln();
-			string[] soru = split(satir, ":");
+			string[] soru = cast(string[])split(satir.dup, ":");
 		
-			if (!data.eof)
-			{
-				_soruListesi.length = i + 1;
-				_soruListesi[i] = Soru(soru[0], soru[1]);
-				
-				++i;
-			}
+			_soruListesi ~= Soru(soru[0], soru[1]);
 		}
 	}
 	
