@@ -1,40 +1,49 @@
-import std.stdio;
-import std.file;
-import std.array;
+module egzersiz;
 
-struct Soru
-{
-	string soruKelime;
-	string cevapKelime;
-}
+import std.stdio;
+import std.array;
+import std.string;
+import std.process;
+
+import veri;
 
 class Egzersiz
 {
-	private Soru[] _soruListesi; 
-	private string _soruDosyasi;
+	private string _dosyaAdresi	;
 	
 	public this(string dosyaAdresi)
 	{
-		assert(exists(dosyaAdresi), "Hata, dosya bulunamadi!");
-		
-		_soruDosyasi = dosyaAdresi;
-		SoruListesiHazirla();
+		_dosyaAdresi = dosyaAdresi;
 	}
 	
-	private void SoruListesiHazirla()
+	public void EgzersizBaslat()
 	{
-		File dosya = File(_soruDosyasi, "rb");
-
-		foreach (satir; dosya.byLine())
+		Veri veriler = new Veri(_dosyaAdresi);
+	
+		Soru[] soruListe = veriler.VerSoruListesi();
+	
+		foreach (soru; soruListe)
 		{
-			string[] soru = cast(string[])split(satir.dup, ":");
-		
-			_soruListesi ~= Soru(soru[0], soru[1]);
-		}
+			EkraniTemizle();
+			
+			writeln("Soru  : ", soru.soruKelime);
+			
+			write("Cevap : ");
+			string cevap = chomp(readln());
+
+			if (toLower(cevap) == toLower(soru.cevapKelime))
+			{
+				writeln("Tebrikler! dogru cevap");
+			}
+			else
+			{
+				writeln("Uzgunum! yanlis cevap");
+			}
+		}	
 	}
 	
-	public Soru[] VerSoruListesi()
+	void EkraniTemizle()
 	{
-		return _soruListesi;
+		system("clear");
 	}
 }	
