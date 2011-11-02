@@ -3,41 +3,55 @@ module veri;
 import std.stdio;
 import std.file;
 import std.array;
+import std.xml;
 
-struct Soru
+struct Kelime
 {
-	string soruKelime;
-	string cevapKelime;
+	string no;
+	string soru;
+	string cevap;
 }
 
 class Veri
 {
-	private Soru[] _soruListesi; 
-	private string _soruDosyasi;
+	private Kelime[] _kelimeListesi; 
+	private string _kelimeDosyasi;
 	
-	public this(string dosyaAdresi)
+	public this(string veriDosyasi)
 	{
-		assert(exists(dosyaAdresi), "Hata, dosya bulunamadi!");
+		assert(exists(veriDosyasi), "Hata, dosya bulunamadi!");
 		
-		_soruDosyasi = dosyaAdresi;
-		SoruListesiHazirla();
+		_kelimeDosyasi = veriDosyasi;
+		KelimeListesiHazirla();
 	}
 
-	private void SoruListesiHazirla()
+	private void KelimeListesiHazirla()
 	{
-		File dosya = File(_soruDosyasi, "rb");
+		string s = cast(string)std.file.read(_kelimeDosyasi); 
+	
+		// XML formatını kontrol et
+		check(s); 
+	
+		DocumentParser xml = new DocumentParser(s); 
+		xml.onStartTag["kelime"] = (ElementParser xml) 
+		{ 
+			Kelime kelime;
+			kelime.no = xml.tag.attr["no"]; 
 		
-		foreach (satir; dosya.byLine())
-		{
-			string[] soru = cast(string[])split(satir.dup, ":");
+			xml.onEndTag["soru"] = (in Element e) { kelime.soru = e.text; }; 
+			xml.onEndTag["cevap"] = (in Element e) { kelime.cevap = e.text; }; 
 		
-			_soruListesi ~= Soru(soru[0], soru[1]);
-		}
+			xml.parse(); 
+		
+			_kelimeListesi ~= kelime;
+		}; 
+		
+		xml.parse(); 
 	}
 	
-	public Soru[] VerSoruListesi()
+	public Kelime[] VerKelimeListesi()
 	{
-		return _soruListesi;
+		return _kelimeListesi;
 	}
 }
 

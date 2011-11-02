@@ -20,18 +20,18 @@ class Egzersiz
 	{
 		Veri veriler = new Veri(_dosyaAdresi);
 	
-		Soru[] soruListe = veriler.VerSoruListesi();
+		Kelime[] kelimeListe = veriler.VerKelimeListesi();
 	
-		foreach (soru; soruListe)
+		foreach (kelime; kelimeListe)
 		{
 			EkraniTemizle();
 			
-			writeln("Soru  : ", soru.soruKelime);
+			writeln("Soru  : ", kelime.soru);
 			
 			write("Cevap : ");
 			string cevap = chomp(readln());
 
-			if (toLower(cevap) == toLower(soru.cevapKelime))
+			if (toLower(cevap) == toLower(kelime.cevap))
 			{
 				writeln("Tebrikler! dogru cevap");
 			}

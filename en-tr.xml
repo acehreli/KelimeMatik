@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<kelimeler>
+	<kelime no="1">
+		<soru>book</soru>
+		<cevap>kitap</cevap>
+	</kelime>
+	<kelime no="2">
+		<soru>pencil</soru>
+		<cevap>kalem</cevap>
+	</kelime>
+	<kelime no="3">
+		<soru>door</soru>
+		<cevap>kapı</cevap>
+	</kelime>
+	<kelime no="4">
+		<soru>blue</soru>
+		<cevap>mavi</cevap>
+	</kelime>
+	<kelime no="5">
+		<soru>dog</soru>
+		<cevap>köpek</cevap>
+	</kelime>
+</kelimeler>
+
