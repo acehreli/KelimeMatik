@@ -1,5 +1,0 @@
-book:defter
-pencil:kalem
-door:kapı
-blue:mavi
-dog:köpek

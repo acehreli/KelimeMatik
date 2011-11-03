@@ -9,7 +9,8 @@ struct Kelime
 {
 	string no;
 	string soru;
-	string cevap;
+	string[] cevaplar;
+	string[] zitAnlamlar;
 }
 
 class Veri
@@ -39,7 +40,18 @@ class Veri
 			kelime.no = xml.tag.attr["no"]; 
 		
 			xml.onEndTag["soru"] = (in Element e) { kelime.soru = e.text; }; 
-			xml.onEndTag["cevap"] = (in Element e) { kelime.cevap = e.text; }; 
+			
+			xml.onStartTag["cevaplar"] = (ElementParser xml)
+			{
+				xml.onEndTag["cevap"] = (in Element e) { kelime.cevaplar ~= e.text; }; 
+				xml.parse();
+			};
+			
+			xml.onStartTag["zit-anlamlilar"] = (ElementParser xml)
+			{
+				xml.onEndTag["zit-anlam"] = (in Element e) { kelime.zitAnlamlar ~= e.text; }; 
+				xml.parse();
+			};
 		
 			xml.parse(); 
 		

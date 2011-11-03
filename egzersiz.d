@@ -24,20 +24,23 @@ class Egzersiz
 	
 		foreach (kelime; kelimeListe)
 		{
-			EkraniTemizle();
+			//EkraniTemizle();
 			
 			writeln("Soru  : ", kelime.soru);
 			
 			write("Cevap : ");
-			string cevap = chomp(readln());
+			string verilenCevap = chomp(readln());
 
-			if (toLower(cevap) == toLower(kelime.cevap))
+			foreach (cevap; kelime.cevaplar)
 			{
-				writeln("Tebrikler! dogru cevap");
-			}
-			else
-			{
-				writeln("Uzgunum! yanlis cevap");
+				if (toLower(verilenCevap) == toLower(cevap))
+				{
+					writeln("Tebrikler! dogru cevap");
+				}
+				else
+				{
+					writeln("Uzgunum! yanlis cevap");
+				}
 			}
 		}	
 	}
