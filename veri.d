@@ -7,7 +7,7 @@ import std.xml;
 
 struct Kelime
 {
-	string no;
+	string seviye;
 	string soru;
 	string[] cevaplar;
 	string[] zitAnlamlar;
@@ -37,7 +37,7 @@ class Veri
 		xml.onStartTag["kelime"] = (ElementParser xml) 
 		{ 
 			Kelime kelime;
-			kelime.no = xml.tag.attr["no"]; 
+			kelime.seviye = xml.tag.attr["seviye"]; 
 		
 			xml.onEndTag["soru"] = (in Element e) { kelime.soru = e.text; }; 
 			
