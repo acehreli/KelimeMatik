@@ -7,7 +7,7 @@ import egzersiz;
 
 void main()
 {
-	Egzersiz calisma = new Egzersiz("en-tr.xml");
+	Egzersiz calisma = new Egzersiz("data/en-tr.xml");
 	calisma.EgzersizBaslat();
 }
 
