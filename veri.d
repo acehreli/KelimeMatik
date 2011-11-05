@@ -3,11 +3,14 @@ module veri;
 import std.stdio;
 import std.file;
 import std.array;
+import std.conv;
 import std.xml;
+
+enum Seviye { temel, orta, ileri }
 
 struct Kelime
 {
-	string seviye;
+	Seviye seviye;
 	string soru;
 	string[] cevaplar;
 	string[] zitAnlamlar;
@@ -37,7 +40,7 @@ class Veri
 		xml.onStartTag["kelime"] = (ElementParser xml) 
 		{ 
 			Kelime kelime;
-			kelime.seviye = xml.tag.attr["seviye"]; 
+			kelime.seviye = to!Seviye(xml.tag.attr["seviye"]); 
 		
 			xml.onEndTag["soru"] = (in Element e) { kelime.soru = e.text; }; 
 			

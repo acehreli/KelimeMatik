@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <kelimeler>
-	<kelime seviye="1">
+	<kelime seviye="temel">
 		<soru>book</soru>
         <cevaplar>
             <cevap>kitap</cevap>
@@ -10,7 +10,7 @@
             <zit-anlam>cancel</zit-anlam>
         </zit-anlamlilar>
 	</kelime>
-	<kelime seviye="1">
+	<kelime seviye="temel">
 		<soru>pencil</soru>
 		<cevaplar>
             <cevap>kalem</cevap>
@@ -20,7 +20,7 @@
             <zit-anlam>cancel</zit-anlam>
         </zit-anlamlilar>
 	</kelime>
-	<kelime seviye="1">
+	<kelime seviye="temel">
 		<soru>door</soru>
 		<cevaplar>
             <cevap>kapı</cevap>
@@ -30,7 +30,7 @@
             <zit-anlam>cancel</zit-anlam>
         </zit-anlamlilar>
 	</kelime>
-	<kelime seviye="1">
+	<kelime seviye="temel">
 		<soru>blue</soru>
 		<cevaplar>
             <cevap>mavi</cevap>
@@ -40,7 +40,7 @@
             <zit-anlam>cancel</zit-anlam>
         </zit-anlamlilar>
 	</kelime>
-	<kelime seviye="1">
+	<kelime seviye="temel">
 		<soru>dog</soru>
 		<cevaplar>
             <cevap>köpek</cevap>
